@@ -1,0 +1,30 @@
+name: Super Bot Matrix
+
+on:
+  workflow_dispatch:  # Button se start karne ke liye
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # Ye number batata hai kitne computer ek saath chalane hai.
+        # Abhi hum 20 alag-alag IP se attack karenge.
+        bot-id: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+        
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.9'
+
+    - name: Install Libraries
+      run: |
+        pip install playwright
+        playwright install --with-deps chromium
+
+    - name: Run Script (Bot-${{ matrix.bot-id }})
+      run: python main.py
