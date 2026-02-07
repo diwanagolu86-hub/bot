@@ -3,7 +3,7 @@ import random
 from playwright.sync_api import sync_playwright
 
 # --- CONFIG ---
-TARGET_URL = "https://nanolinks.in/WBxwh"
+TARGET_URL = "https://nanolinks.in/D5kjxzou"
 FINAL_DESTINATION = "bot.free.nf"
 REFERRERS = ["https://t.me/", "https://google.com/"]
 
